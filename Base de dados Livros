@@ -1,0 +1,193 @@
+CREATE DATABASE Livros;
+USE Livros;
+
+CREATE TABLE Area(ID int auto_increment NOT NULL PRIMARY KEY, Nome nvarchar(250) NULL); 
+
+CREATE TABLE Autor(ID int auto_increment NOT NULL PRIMARY KEY, Nome nvarchar(250) NULL, Biografia nvarchar(4000) NULL);
+
+CREATE TABLE Editora(ID int auto_increment NOT NULL PRIMARY KEY, Nome nvarchar(250) NULL, Morada nvarchar(500) NULL, CodigoPostal varchar(8) NULL, Localidade nvarchar(250) NULL, Telefone varchar(9) NULL, Email nvarchar(150) NULL, URL nvarchar(150) NULL);
+
+CREATE TABLE Livro(ID int auto_increment NOT NULL PRIMARY KEY, Titulo nvarchar(500) NULL, Resumo nvarchar (2500) NULL, Editora int NULL, Area int NULL, Foreign Key(Editora) references Editora(ID));
+
+CREATE TABLE LivroAutor(ID int auto_increment NOT NULL PRIMARY KEY, Livro int NULL, Autor int NULL); 
+
+INSERT INTO Area(ID, Nome) VALUES (1, N'Literatura');
+
+INSERT INTO Area(ID, Nome) VALUES (2, N'Poesia');
+
+INSERT INTO Area(ID, Nome) VALUES (3, N'Ensaio');
+
+INSERT INTO Area(ID, Nome) VALUES (4, N'Conto');
+
+INSERT INTO Area(ID, Nome) VALUES (5, N'História');
+
+INSERT INTO Area(ID, Nome) VALUES (10, N'Banda desenhada');
+
+INSERT INTO Area(ID, Nome) VALUES (11, N'Técnico');
+
+INSERT INTO Area(ID, Nome) VALUES (12, N'Romance');
+
+INSERT INTO Autor(ID, Nome, Biografia) VALUES (1, N'Luís de Camões', N'Poeta português (1524-1580), autor do famoso poema épico "Os Lusíadas" e de uma considerável obra lírica e dramática.');
+
+INSERT INTO Autor(ID, Nome, Biografia) VALUES (2, N'Miguel de Cervantes', N'Romancista, dramaturgo e poeta espanhol. Foi o criador de "D. Quixote" (1605) e é considerado uma das figuras mais importantes da literatura espanhola. Nasceu em 1547, em Alcalá de Henares, Espanha, e morreu em 1616, em Madrid. Depois de ter estudado em Madrid, Cervantes partiu para a Itália e tornou-se soldado.');
+
+INSERT INTO Autor(ID, Nome, Biografia) VALUES (3, N'Roberto Bolaño', N'Roberto Bolaño nasceu em 1953, em Santiago do Chile, filho de pai camionista e de mãe professora. Sua infância foi vivida em várias cidades chilenas (Valparaíso, Quilpué, Viña del Mar ou Cauquenes) e a passagem pela escola atormentada pela dislexia. Aos quinze anos a família mudou-se para a Cidade do México.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (4, N'Gabriel García Márquez', N'Escritor colombiano nascido a 6 de Março de 1928 em Aracataca, um pequeno entreposto do comércio de bananas. Desde logo deixado ao cuidado dos seus avós, um coronel na reserva, ex-combatente na guerra civil, e uma apaixonada pelas tradições orais indígenas, estudou na austeridade de um colégio de jesuítas.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (5, N'José Saramago', N'Consagrado escritor português, José Saramago nasceu a 16 de novembro de 1922, em Azinhaga, no concelho da Golegã. Ficcionista, cronista, poeta, autor dramático, coube-lhe a honra de ser o primeiro autor português distinguido com o Prêmio Nobel da Literatura, em 1998, consagrando, no seu nome, o prestígio das letras portuguesas contemporâneas além-fronteiras.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (6, N'Fernando Pessoa', N'Um dos maiores gênios poéticos de toda a nossa Literatura e um dos poucos escritores portugueses mundialmente conhecidos. A sua poesia acabou por ser decisiva na evolução de toda a produção poética portuguesa do século XX. Se nele é ainda notória a herança simbolista, Pessoa foi mais longe, não só quanto à criação (e invenção) de novas tentativas artísticas e literárias, mas também no que respeita ao esforço de teorização e de crítica literária.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (7, N'José Gil', N'Filósofo e pensador português nascido em 1939, em Lourenço Marques, Moçambique. Após completar o ensino secundário na capital moçambicana, em 1957 veio estudar para a Faculdade de Ciências da Universidade de Lisboa, onde se inscreveu no curso de Ciências Matemáticas. Contudo, logo no ano seguinte mudou-se para Paris, em França, onde prosseguiu os estudos em Matemática. No entanto, percebeu que a sua área preferida era a Filosofia e mudou de curso. Em 1968 concluiu a licenciatura em Filosofia na Faculdade de Letras de Paris, na Universidade da Sorbonne.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (8, N'Eduardo Lourenço', N'Ensaísta português, nasceu a 29 de Maio de 1923, em S. Pedro de Rio Seco, Almeida. Formado em Ciências Histórico-Filosóficas pela Universidade de Coimbra, onde foi professor entre 1947 e 1953, leccionou depois em várias universidades, como a da Baía, no Brasil, e nas Universidades de Hamburgo, Heidelberg, Montpellier, Grenoble e Nice. Fixando residência em Vence, leccionou, até à sua jubilação, na Universidade de Nice.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (9, N'Aquilino Ribeiro', N'Aquilino Ribeiro nasceu na Beira Alta, em 1885 e morreu em Lisboa em 1963. Deixou uma vasta obra em que cultivou todos os géneros literários, partilhando com Fernando Pessoa, nas palavras de Óscar Lopes, lugar cimeiro nas Letras Portuguesas. ');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (10, N'Miguel Torga', N'Pseudônimo de Adolfo Correia da Rocha, autor de uma produção literária vasta e variada, largamente reconhecida. Nasceu em S. Martinho de Anta em 1907. Depois de uma experiência de emigração no Brasil durante a adolescência, cursou Medicina em Coimbra, onde passou a viver e onde veio a falecer em 1995. Foi poeta presencista numa primeira fase; a sua obra abordou temas bucólicos, a angústia da morte, a revolta, temas sociais como a justiça e a liberdade, o amor, e deixou transparecer uma aliança íntima e permanente entre o homem e a terra.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (13, N'Jorge Amado', N'Autor Brasileiro; escreveu, de entre outras obras, Capitães da areia.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (15, N'Eduardo Galeano', N'Eduardo Galeano (1940-2015) é "inimigo da mentira e da indiferença", segundo John Berger. Notabilizou-se como um dos mais apaixonados ativistas e escritores latino-americanos. Nos cafés de Montevideu, despertou para o "arco-íris da humanidade", para o colorido das gentes e dos pequenos gestos, e aprendeu a escutar a dignidade das vozes das ruas. Com um percurso intensamente político, Eduardo Galeano foi, nos anos 60, editor do mítico Marcha, principal jornal de esquerda uruguaio, e, se sonhara ser jogador de futebol em criança, cedo se tornou um ponta-de-lança dos oprimidos e dos sem-voz, fintando o silêncio a que estavam condenados. A publicação de Veias Abertas condenou o autor à prisão e forçou-o ao exílio na Argentina, onde esteve nas listas dos esquadrões da morte, e em Espanha.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (17, N'Mia Couto', N'Nasceu em Moçambique. Pseudônimo de António Emílio Leite Couto. Autor de Cronicando.');
+
+INSERT into Autor(ID, Nome, Biografia) VALUES (20, N'Martin Gilbert', N'Historiador');
+
+INSERT Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (1, N'Edições 70', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (2, N'D. Quixote', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (3, N'Bertrand', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (4, N'ASA', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (5, N'Tinta da China', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (6, N'Caminho', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (7, N'Ulisseia', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Editora (ID, Nome, Morada, CodigoPostal, Localidade, Telefone, Email, URL) VALUES (8, N'Porto Editora', NULL, NULL, NULL, NULL, NULL, NULL);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (1, N'Contos de Outros Tempos', NULL, 1, 1);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (2, N'História de Portugal - Volume I', NULL, 2, 1);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (3, N'História de Portugal - Volume II', NULL, 2, 2);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (4, N'El Ingenioso Hidalgo Don Quijote De La Mancha', NULL, 2, 2);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (5, N'2666', NULL, 2, 2);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (6, N'Os detectives selvagens', NULL, 3, 2);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (7, N'Cem anos de solidão', NULL, 3, 3);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (8, N'A aventura de Miguel Littin clandestino no Chile', NULL, 3, 3);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (9, N'Os poemas possíveis', NULL, 3, 3);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (10, N'Viagem a Portugal', NULL, 4, 3);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (11, N'A caverna', NULL, 4, 3);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (12, N'Contos, Fábulas & Outras Ficções', NULL, 4, 3);
+
+INSERT INTO Livro (ID, Titulo, Resumo, Editora, Area) VALUES (13, N'Portugal, hoje', NULL, 1, 3);
+
+INSERT Livro (ID, Titulo, Resumo, Editora, Area) VALUES (14, N'O labirinto da saudade', NULL, 5, 4);
+
+INSERT Livro (ID, Titulo, Resumo, Editora, Area) VALUES (15, N'Príncipes de Portugal', NULL, 6, 4);
+
+INSERT Livro (ID, Titulo, Resumo, Editora, Area) VALUES (16, N'O Malhadinhas', NULL, 6, 4);
+
+INSERT Livro (ID, Titulo, Resumo, Editora, Area) VALUES (17, N'Contos da montanha', NULL, 7, 5);
+
+INSERT Livro (ID, Titulo, Resumo, Editora, Area) VALUES (18, N'Bichos', NULL, 8, 5);
+
+INSERT Livro (ID, Titulo, Resumo, Editora, Area) VALUES (27, N'Futebol ao sol e à sombra', N'Obra de Eduardo Galeano.', 2, 3);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (1, 1, 1);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (2, 1, 2);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (5, 3, 5);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (6, 3, 6);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (7, 3, 7);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (10, 6, 10);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (12, 7, 1);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (14, 9, 3);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (15, 10, 4);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (16, 11, 5);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (17, 12, 6);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (18, 13, 7);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (19, 14, 8);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (20, 14, 9);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (21, 15, 10);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (22, 16, 10);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (23, 17, 2);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (27, 5, 3);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (31, 8, 4);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (38, 18, 10);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (39, 7, 9);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (40, 7, 8);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (44, 11, 7);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (45, 11, 10);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (46, 11, 6);
+
+INSERT LivroAutor (ID, Livro, Autor) VALUES (47, 4, 2);
+
+ALTER TABLE Livro 
+    DROP FOREIGN KEY fkLivroArea, 
+    ADD CONSTRAINT fkLivroArea FOREIGN KEY (Area) REFERENCES Area(ID);
+
+ALTER TABLE Livro DROP FOREIGN KEY fkLivroEditora, ADD CONSTRAINT fkLivroEditora FOREIGN KEY (Editora) REFERENCES Editora(ID);
+
+ALTER TABLE LivroAutor ADD  CONSTRAINT fkAutorLivro FOREIGN KEY(Autor)
+REFERENCES Autor (ID);
+
+ALTER TABLE LivroAutor DROP FOREIGN KEY fkAutorLivro, ADD CONSTRAINT fkAutorLivro FOREIGN KEY (Autor) REFERENCES Autor(ID);
+
+ALTER TABLE LivroAutor ADD  CONSTRAINT fkLivroAutor FOREIGN KEY(Livro)
+REFERENCES Livro (ID);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
